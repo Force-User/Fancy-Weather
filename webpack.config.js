@@ -12,7 +12,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Rain Drops',
+            title: 'Fancy Weather',
             template: path.resolve(__dirname, "./src/index.html"),
             filename: 'index.html',
         }),
@@ -29,7 +29,7 @@ module.exports = {
                 use:['html-loader'],
             },
             {
-                test:/\.(?:ico|gif|png|jpg|jpeg)$/i,
+                test:/\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
                 type: 'asset/resource'
             },
             {

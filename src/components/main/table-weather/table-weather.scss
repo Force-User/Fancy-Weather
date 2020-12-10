@@ -1,0 +1,78 @@
+@import "../../../sass/style.scss";
+.table-weather {
+  @include flex(flex-start);
+  flex-direction: column;
+  &-head {
+    color: $color-light;
+    &__locate {
+      text-transform: uppercase;
+      font-size: $font-size-title;
+    }
+    &__date {
+      font-size: $font-size-subtitle;
+    }
+  }
+}
+
+.weather-today {
+  @include flex();
+  &__temperature {
+    color: $color-light;
+    font-weight: bold;
+    font-size: $font-size-current-temperature;
+    line-height: 373px;
+  }
+}
+.weather-info {
+  @include flex(flex-start,space-between);
+  flex-direction: column;
+  &__image {
+    width: 160px;
+    height: 100px;
+    background-color: $color-light;
+  }
+}
+
+.weather-info-list {
+  margin: $margin-list;
+  &__li {
+    list-style-type: none;
+    font-size: $font-size-subtitle;
+    color: $color-light;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.weather-other-days {
+  @include flex();
+}
+
+.forecast-next-day {
+ @include flex(flex-start,space-between);
+  flex-direction: column;
+  &:nth-child(n + 2) {
+    margin-left: $margin-forecast-between;
+  }
+  &__name {
+    text-transform: uppercase;
+    color: $color-light;
+    font-size: $font-size-title-info;
+    font-weight: bold;
+  }
+}
+
+.weather-next-day {
+  @include flex();
+  &__temperature {
+    font-size: $font-size-next;
+    font-weight: 600;
+    color: $color-light;
+  }
+  &__img {
+    margin-left: $margin-forecast-image;
+    width: 65px;
+    height: 40px;
+    background-color: $color-light;
+  }
+}

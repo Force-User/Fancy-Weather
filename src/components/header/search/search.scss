@@ -1,0 +1,27 @@
+@import "../../../sass/style.scss";
+.search-form {
+    display: flex;
+    border-radius: $border-radius-parameters;
+    overflow: hidden;
+    
+}
+.search-area {
+    padding: $padding-search;
+    background-color: $color-not-active;
+    border: 1px solid $color-search-border;
+ 
+}
+
+.search__input {
+    background-color: initial;
+    
+}
+.search__button {
+    padding: $padding-search-button;
+    background: $color-button;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-light;
+    cursor: pointer;
+    
+}

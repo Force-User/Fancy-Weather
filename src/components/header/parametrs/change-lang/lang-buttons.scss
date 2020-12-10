@@ -1,0 +1,51 @@
+@import "../../../../sass/style.scss";
+
+.lang {
+    position: relative;
+    margin-right: $margin-button-between;
+    &__button {
+        background-color: $color-button;
+        @include flex();
+        padding: $padding-parameters-button;
+        border-radius: $border-radius-parameters;
+        cursor: pointer;
+        transition: .5s;
+        &--active {
+            background-color: $color-not-active;
+            border-radius: 5px 5px 0 0;
+        }
+    }
+    &__text {
+        font-weight: 700;
+        margin-right: $margin-button-between;
+        color: $color-light;
+    }
+    &-select {
+        position: absolute;
+        top: 46px;
+        left: 0;
+        display: none;
+        background-color: $color-button;
+        color: $color-light;
+        font-weight: 700;
+        text-transform: uppercase;
+        border-radius: 0 0 5px 5px;
+        &--show {
+            display: block;
+        }
+        &__option{
+            padding: 10px 23px;
+            border-top: 2px solid $color-button;
+            &:hover {
+                background-color: $color-not-active;
+            }
+        }
+        
+    }
+}
+
+
+
+
+
+

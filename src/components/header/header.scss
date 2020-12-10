@@ -1,0 +1,8 @@
+@import "../../sass/style.scss";
+.header-parameters {
+    margin-top: $margin-head-top;
+    width: 100%;
+    @include flex(center,space-between);
+    font-size: $font-size-button;
+    user-select: none;
+}

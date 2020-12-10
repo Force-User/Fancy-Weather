@@ -1,3 +1,9 @@
+import AppWeather from "./components/app.js";
+
+
+const appWeather = new AppWeather();
+appWeather.init();
+
 // function convert(input, source, target) {
 //     let s=0;  let str='';
 //     for (let i=0; i<input.length; i++) {
