@@ -10,6 +10,9 @@ export default class AppWeather {
         this.main            = new Main();
         this.wrapper         = null
         this.backgroundImage = null;
+
+        this.currentCity     = null;
+        this.selectedLang    = "ru";
     }
 
     init() {
@@ -34,14 +37,43 @@ export default class AppWeather {
         this.handleEvents();
 
         // this.getImage();
-        this.getWather();
+        this.getLocate();
+        
     }
 
     getWather() {
-        const url = `https://api.openweathermap.org/data/2.5/forecast?q=Gomel&lang=ua&units=metric&APPID=a9a3a62789de80865407c0452e9d1c27`;
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${this.currentCity}&lang=${this.selectedLang}&units=metric&APPID=a9a3a62789de80865407c0452e9d1c27`;
         fetch(url)
         .then(data => data.json())
-        .then(data => console.log(data));
+        .then(data => {
+            console.log(data);
+            const dataToday = data.list[0];
+            this.main.tableWeather.setTemperatureToday(dataToday.main.temp);
+            this.main.tableWeather.setWeatherToDay(dataToday.weather[0].description);
+            this.main.tableWeather.setFeelsLike(dataToday.main.feels_like);
+            this.main.tableWeather.setWind(dataToday.wind.speed);
+            this.main.tableWeather.setHumidity(dataToday.main.humidity);
+
+            this.main.tableWeather.setTemperatureOnFirstDay(data.list[10].main.temp);
+            this.main.tableWeather.setTemperatureOnSecondDay(data.list[18].main.temp);
+            this.main.tableWeather.setTemperatureOnThirdDay(data.list[26].main.temp);
+        });
+    }
+
+    getLocate() {
+        const url = `https://ipinfo.io/json?token=eb5b90bb77d46a`;
+        fetch(url)
+        .then(data => data.json())
+        .then(data => {
+            [this.currentCity] = data.region.split(" ");
+            this.main.tableWeather.setLocate(this.currentCity, data.country);
+            return data;
+        })
+        .then(data => {
+            console.log(this.currentCity);
+            this.getWather();
+        })
+            
     }
 
     getElement() {
