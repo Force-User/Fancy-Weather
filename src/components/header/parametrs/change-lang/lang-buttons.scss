@@ -36,6 +36,7 @@
         &__option{
             padding: 10px 23px;
             border-top: 2px solid $color-button;
+            list-style-type: none;
             &:hover {
                 background-color: $color-not-active;
             }

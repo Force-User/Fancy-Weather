@@ -14,13 +14,22 @@
   }
 }
 
+
 .weather-today {
   @include flex();
   &__temperature {
     color: $color-light;
     font-weight: bold;
     font-size: $font-size-current-temperature;
-    line-height: 373px;
+    line-height: 300px;
+    position: relative;
+    &:after {
+      content: "°";
+      position: absolute;
+      top: -80px;
+      right:-20px;
+      font-size: 70px;
+    }
   }
 }
 .weather-info {
@@ -29,7 +38,10 @@
   &__image {
     width: 160px;
     height: 100px;
-    background-color: $color-light;
+    >svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
@@ -41,6 +53,18 @@
     color: $color-light;
     text-transform: uppercase;
     font-weight: bold;
+
+    &[data-name="item-feels-like"] {
+      position: relative;
+      &:after {
+        content: "°";
+        position: absolute;
+        top: -10px;
+        right: 60px;
+        font-size: 30px;
+      }
+      
+    }
   }
 }
 
@@ -51,6 +75,9 @@
 .forecast-next-day {
  @include flex(flex-start,space-between);
   flex-direction: column;
+  border: 3px solid $color-light;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px 5px;
   &:nth-child(n + 2) {
     margin-left: $margin-forecast-between;
   }
@@ -64,15 +91,27 @@
 
 .weather-next-day {
   @include flex();
+ 
   &__temperature {
     font-size: $font-size-next;
     font-weight: 600;
     color: $color-light;
+    position: relative;
+    &:before{
+      content: "°";
+      position: absolute;
+      top: 0px;
+      right:-10px;
+      font-size: 40px;
+    }
   }
   &__img {
-    margin-left: $margin-forecast-image;
-    width: 65px;
-    height: 40px;
-    background-color: $color-light;
+    margin: $margin-forecast-image;
+    width: 80px;
+    height: 80px;
+    >svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

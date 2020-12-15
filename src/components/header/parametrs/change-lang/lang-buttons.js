@@ -14,10 +14,14 @@ export default class LangSelect {
         this.element        = container.querySelector(".lang");
         this.button         = container.querySelector('.lang__button');
         this.select         = container.querySelector('.lang-select');
+        this.options        = this.select.querySelectorAll(".lang-select__option");
     }
 
     getElement() {
         return this.element;
+    }
+    setLang(lang) {
+        this.button.querySelector('.lang__text').textContent = lang;
     }
 
     toggleActiveButton() {

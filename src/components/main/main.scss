@@ -2,6 +2,6 @@
 .main-area {
     margin: 60px 100px;
     width: 100%;
-    border: 1px solid #fff;
    @include flex(center,space-between);
+   text-shadow: 5px 5px 3px $color-dark;
 }
