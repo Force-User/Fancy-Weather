@@ -7,14 +7,17 @@
 }
 .search-area {
     padding: $padding-search;
-    background-color: $color-not-active;
+    background-color: $color-active;
     border: 1px solid $color-search-border;
+    @include flex(center,space-between);
  
 }
 
 .search__input {
     background-color: initial;
-    
+    width: 205px;
+    color: $color-light;
+    font-size: 18px;
 }
 .search__button {
     padding: $padding-search-button;
@@ -23,5 +26,10 @@
     text-transform: uppercase;
     color: $color-light;
     cursor: pointer;
-    
+}
+
+.micro {
+    background: none;
+    cursor:pointer;
+    margin:0 15px;
 }

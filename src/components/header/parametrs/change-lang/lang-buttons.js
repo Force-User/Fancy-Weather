@@ -30,4 +30,12 @@ export default class LangSelect {
     toggleActiveSelect() {
         this.select.classList.toggle("lang-select--show");
     }
+    setActiveOption(option) {
+        const activeOption = document.querySelector(".lang-select__option--active");
+        if(activeOption) {
+            activeOption.classList.remove("lang-select__option--active");
+        }
+        option.classList.add("lang-select__option--active");
+
+    }
 }

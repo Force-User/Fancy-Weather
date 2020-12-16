@@ -16,28 +16,35 @@
 
 
 .weather-today {
-  @include flex();
+  @include flex(flex-start);
+  flex-direction: column;
   &__temperature {
-    color: $color-light;
+    color: $color-light; 
     font-weight: bold;
     font-size: $font-size-current-temperature;
     line-height: 300px;
     position: relative;
     &:after {
       content: "°";
-      position: absolute;
-      top: -80px;
-      right:-20px;
-      font-size: 70px;
+    position: absolute;
+    top: -110px;
+    right: -10px;
+    font-size: 90px;
     }
   }
 }
+
+.forecast-today{
+  @include flex();
+}
+
 .weather-info {
   @include flex(flex-start,space-between);
   flex-direction: column;
+  margin-left: 20px;
   &__image {
     width: 160px;
-    height: 100px;
+    height: 160px;
     >svg {
       width: 100%;
       height: 100%;
@@ -46,7 +53,7 @@
 }
 
 .weather-info-list {
-  margin: $margin-list;
+  margin-left: 80px;
   &__item {
     list-style-type: none;
     font-size: $font-size-subtitle;
@@ -54,14 +61,13 @@
     text-transform: uppercase;
     font-weight: bold;
 
-    &[data-name="item-feels-like"] {
+    .item-feels-like-info {
       position: relative;
       &:after {
         content: "°";
         position: absolute;
         top: -10px;
-        right: 60px;
-        font-size: 30px;
+        right: -10px;
       }
       
     }
@@ -78,6 +84,7 @@
   border: 3px solid $color-light;
   border-radius: 15px;
   box-shadow: 5px 5px 5px 5px;
+  padding: 5px 20px;
   &:nth-child(n + 2) {
     margin-left: $margin-forecast-between;
   }
@@ -87,7 +94,7 @@
     font-size: $font-size-title-info;
     font-weight: bold;
   }
-}
+} 
 
 .weather-next-day {
   @include flex();
@@ -113,5 +120,84 @@
       width: 100%;
       height: 100%;
     }
+  }
+}
+
+
+
+
+.snow1 {
+  transform:translate(0, -100%);
+  animation: snowFall 2s .5s linear infinite;
+}
+.snow2{
+  animation: snowFall 2s  linear infinite;
+}
+
+/*Sun*/
+
+.sun {
+animation: rotateSun 30s linear infinite;
+}
+
+/*Clouds*/
+.cloud, .rain, .sun-rain, .sun-cloud, .broken-cloud{
+  width: 100%;
+  height: 100%;
+  animation: swimmingCloud 3s linear infinite;
+}
+/*FallDrops*/
+.drop1 {
+  animation: fallDrop .5s .1s linear infinite ;
+}
+
+.drop2 {
+  animation: fallDrop .5s .2s linear infinite
+}
+.drop3 {
+  animation: fallDrop .5s .3s linear infinite
+}
+.drop4 {
+  animation: fallDrop .5s .4s linear infinite
+}
+.drop5 {
+  animation: fallDrop .5s .5s linear infinite
+}
+
+
+@keyframes swimmingCloud {
+  0%{
+      transform :translate(0, -5px);
+  }
+  50%{
+      transform :translate(0, -10px);
+  }
+   100%{
+      transform :translate(0, -5px);
+  }
+}
+
+@keyframes fallDrop {
+  0% {
+      transform: translate(0, 0);
+  }
+  100%{
+      transform: translate(0, 30px);
+  }
+}
+
+@keyframes rotateSun {
+  100%{
+    transform: rotate(360deg);  
+  }
+}
+
+@keyframes snowFall {
+  
+  0%{
+      transform: translate(0, -100%)
+  }
+  100%{
+      transform: translate(0, 100%);
   }
 }

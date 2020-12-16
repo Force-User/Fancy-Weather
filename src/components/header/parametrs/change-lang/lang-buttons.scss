@@ -11,7 +11,7 @@
         cursor: pointer;
         transition: .5s;
         &--active {
-            background-color: $color-not-active;
+            background-color: $color-active;
             border-radius: 5px 5px 0 0;
         }
     }
@@ -37,8 +37,11 @@
             padding: 10px 23px;
             border-top: 2px solid $color-button;
             list-style-type: none;
+            &--active{
+                background-color:$color-active;
+            }
             &:hover {
-                background-color: $color-not-active;
+                background-color: $color-active;
             }
         }
         

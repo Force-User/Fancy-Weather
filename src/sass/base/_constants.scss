@@ -2,10 +2,10 @@ $color-light: #fff;
 $color-dark: #000;
 $color-main: linear-gradient(180deg, #080f1a96 0%, #11112e75 100%);
 $color-button: #aeb5b980;
-$color-not-active: #4c525566;
+$color-active: #4c525566;
 $color-search-border: #e4e3e333;
 
-$font-size-current-temperature: 206px;
+$font-size-current-temperature: 306px;
 $font-size-title: 44px;
 $font-size-subtitle: 24px;
 $font-size-title-info: 26px;
@@ -25,7 +25,7 @@ $margin-forecast-image: 0  0 25px 15px;
 $padding-parameters-button: 15px; // 13
 $padding-search-button: 20px;
 $padding-refresh: 13px 15px 11px 14px;
-$padding-search: 13px 60px 13px 15px;
+$padding-search: 13px 0px 13px 15px;
 $padding-search-button: 16px 20px;
 
 $width-wrapper: 1350px;

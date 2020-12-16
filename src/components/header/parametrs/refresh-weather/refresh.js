@@ -12,8 +12,6 @@ export default class RefreshButton {
         container.innerHTML = template;
         this.element        = container.querySelector('.refresh');
         this.refreshImage   = this.element.querySelector('.refresh__image');
-
-        this.handleEvent();
     }
 
     getElement() {
@@ -24,14 +22,11 @@ export default class RefreshButton {
     animateRefresh() {
         this.refreshImage.classList.add("refresh__image--active");
     }
+    removeAnimateRefresh() {
+        this.refreshImage.classList.remove("refresh__image--active");
+    }
 
     stopAnimateRefresh() {
         this.refreshImage.classList.remove('refresh__image--active');
-    }
-
-    handleEvent() {
-        this.element.addEventListener('click', (e) => {
-            this.animateRefresh();
-        })
     }
 }
