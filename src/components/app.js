@@ -74,7 +74,7 @@ export default class AppWeather {
   }
 
   getZoneName(lng, lat) {
-    const url = `http://api.timezonedb.com/v2.1/get-time-zone?key=8Q96U2APKZN9&format=json&by=position&lat=${lat}&lng=${lng}`;
+    const url = `https://api.timezonedb.com/v2.1/get-time-zone?key=8Q96U2APKZN9&format=json&by=position&lat=${lat}&lng=${lng}`;
     fetch(url)
       .then((data) => data.json())
       .then((data) => {
@@ -99,7 +99,7 @@ export default class AppWeather {
         
       })
       .then((data) => {
-        console.log(data);
+        
           const lng           = data.results[0].geometry.lng;
           const lat           = data.results[0].geometry.lat;
           this.currentCountry = data.results[0].components.country;
