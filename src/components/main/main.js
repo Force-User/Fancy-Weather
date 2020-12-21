@@ -6,6 +6,7 @@ import MapTable from "./map-table/map-table";
 export default class Main {
     constructor() {
         this.element            = null;
+        this.wrapper            = null;
         this.tableWeather       = new TableWeather();
         this.mapTable           = new MapTable();
         this.locate             = null;
@@ -18,11 +19,12 @@ export default class Main {
         const container     = document.createElement('div');
         container.innerHTML = template;
         this.element = container.querySelector('.main-area');
+        this.wrapper = this.element.querySelector('.wrapper');
 
         this.tableWeather.init();
         this.mapTable.init();
 
-        this.element.append(
+        this.wrapper.append(
             this.tableWeather.getElement(),
             this.mapTable.getElement()
             );

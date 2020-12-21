@@ -20,22 +20,29 @@ export default class LangSelect {
     getElement() {
         return this.element;
     }
+    
     setLang(lang) {
         this.button.querySelector('.lang__text').textContent = lang;
     }
 
-    toggleActiveButton() {
-        this.button.classList.toggle("lang__button--active");
-    }
-    toggleActiveSelect() {
-        this.select.classList.toggle("lang-select--show");
-    }
     setActiveOption(option) {
+       
         const activeOption = document.querySelector(".lang-select__option--active");
         if(activeOption) {
             activeOption.classList.remove("lang-select__option--active");
         }
         option.classList.add("lang-select__option--active");
+        
 
     }
+
+    toggleActiveButton() {
+        this.button.classList.toggle("lang__button--active");
+        console.log("adsas");
+    }
+    
+    toggleActiveSelect() {
+        this.select.classList.toggle("lang-select--show");
+    }
+    
 }

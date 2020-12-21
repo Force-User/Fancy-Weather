@@ -3,12 +3,26 @@ import "./map-table.scss";
 
 export default class MapTable {
     constructor() {
-        this.element = null;
-        this.map     = null;
-        this.locate  = null;
-        this.map     = null;
-        this.lng     = null;
-        this.lat     = null;
+        this.element         = null;
+        this.map             = null;
+        this.locate          = null;
+        this.map             = null;
+        this.lng             = null;
+        this.lat             = null;
+        this.coordinatesLang = {
+            EN: {
+                lat: "Latitude",
+                lng: "Longitude",
+            },
+            RU: {
+                lat: "Широта",
+                lng: "Долгота",
+            },
+            BE: {
+                lat: "Шырата",
+                lng: "Даўгата",
+            },
+        }
     }
 
     init() {
@@ -31,12 +45,17 @@ export default class MapTable {
         return this.element;
     }
 
-    setLocate(lng, lat) {
-        this.lng.textContent = lng;
-        this.lat.textContent = lat
+    setCoordinates(lat, lng, lang) {
+        const latDeg             = String(lat).split(".")[0];
+        const lngDeg             = String(lng).split(".")[0];
+        const latMin             = String(lat).split(".")[1].slice(0,2);
+        const lngMin             = String(lng).split(".")[1].slice(0,2);
+
+        this.lat.textContent     = `${this.coordinatesLang[lang].lat} : ${latDeg}°${latMin}'`;
+        this.lng.textContent     = `${this.coordinatesLang[lang].lng} : ${lngDeg}°${lngMin}'`;
     }
 
-    createMap(lng, lat) {
+    createMap(lat, lng) {
         this.map = new mapboxgl.Map({
             container: 'map', // container id
             style: 'mapbox://styles/mapbox/streets-v11', // style URL

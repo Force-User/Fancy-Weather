@@ -1,35 +1,86 @@
 @import "../../../sass/style.scss";
 .search-form {
-    display: flex;
-    border-radius: $border-radius-parameters;
-    overflow: hidden;
-    
+  display: flex;
+  border-radius: $border-radius-parameters;
+  overflow: hidden;
 }
 .search-area {
-    padding: $padding-search;
-    background-color: $color-active;
-    border: 1px solid $color-search-border;
-    @include flex(center,space-between);
- 
+  padding: $padding-search;
+  background-color: $color-active;
+  border: 1px solid $color-search-border;
+  border-radius: 5px 0 0 5px;
+  @include flex(center, space-between);
 }
 
 .search__input {
-    background-color: initial;
-    width: 205px;
-    color: $color-light;
-    font-size: 18px;
+  background-color: initial;
+  width: 205px;
+  color: $color-light;
+  font-size: $font-size-search;
 }
 .search__button {
-    padding: $padding-search-button;
-    background: $color-button;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: $color-light;
-    cursor: pointer;
+  padding: $padding-search-button;
+  background: $color-button;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $color-light;
+  cursor: pointer;
 }
 
 .micro {
-    background: none;
-    cursor:pointer;
-    margin:0 15px;
+  background: none;
+  cursor: pointer;
+  margin: $margin-micro;
+}
+
+.wrong-message{
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    @include flex();
+    width: 200px;
+    height: 100px;
+    color: $color-light;
+    z-index: 1;
+    border:3px solid red;
+    border-radius: 5px;
+    background-color: $color-dark;
+    &--hidden {
+        display: none;
+    }
+}
+.wrong__cross{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: $color-light;
+    &:before{
+        content: "|";
+        position: absolute;
+        top: 0px;
+        left: 2px;
+        transform: rotate(45deg);
+    }
+    &:after{
+        content: "|";
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotate(-45deg);
+
+    }
+}
+
+@media (max-width: 600px) {
+  .search-form {
+    width: 100%;
+  }
+  .search-area {
+    width: inherit;
+  }
+  .search__input {
+    width: inherit;
+  }
 }

@@ -5,7 +5,7 @@ import "./parameters.scss";
 import RefreshButton from "./refresh-weather/refresh";
 
 export default class Parametrs {
-  constructor(parent) {
+  constructor() {
     this.element            = null;
     this.areaButtons        = null;
     this.refresh            = new RefreshButton();

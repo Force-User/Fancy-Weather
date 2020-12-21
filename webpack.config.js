@@ -36,6 +36,11 @@ module.exports = {
                 test:/\.(mp3)$/i,
                 type: 'asset/resource'
             },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ['babel-loader'],
+            }
         ]
     }
 }

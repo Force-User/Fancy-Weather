@@ -2,7 +2,15 @@
 .header-parameters {
     margin-top: $margin-head-top;
     width: 100%;
-    @include flex(center,space-between);
+    @include flex();
     font-size: $font-size-button;
     user-select: none;
 }
+
+@media(max-width: 600px) {
+    .header-parameters .wrapper{
+        flex-wrap: wrap-reverse;
+    }
+}
+
+

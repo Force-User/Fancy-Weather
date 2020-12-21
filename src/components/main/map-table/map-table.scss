@@ -22,3 +22,21 @@
     font-size: 25px;
     margin-top: 10px;
 }
+
+@media(max-width:1200px) {
+    .map-table {
+        align-items: center;
+        justify-content: center;
+        margin-top: 60px;
+    }
+    
+}
+@media(max-width: 600px) {
+    .map-table {
+        width: 100%;
+    }
+    .map{
+        width: 300px;
+        height: 300px;
+    }
+}
