@@ -3,10 +3,10 @@ import "./search.scss";
 
 export default class Search {
     constructor() {
-        this.element     = null;
-        this.button      = null;
-        this.searchArea  = null;
-        this.searchInput = null;
+        this.element                   = null;
+        this.button                    = null;
+        this.searchArea                = null;
+        this.searchInput               = null;
         this.langWrongInputPlaceholder = {
             EN:"Invalid value",
             RU:"Неверный ввод",
@@ -35,14 +35,6 @@ export default class Search {
 
     }
 
-    changeLangForSearchPlaceHolder(lang,isWrongInput = false) {
-        if(isWrongInput) {
-            this.searchInput.placeholder = this.langWrongInputPlaceholder[lang];
-        }else{
-            this.searchInput.placeholder = this.langInputPlaceholder[lang];
-        }
-    }
-
     setRecognizerLang(lang) {
         const objLang = {
             RU: "ru-Ru",
@@ -55,9 +47,11 @@ export default class Search {
     getElement() {
         return this.element;
     }
+
     getValueSearch() {
         return this.searchInput.value.toLowerCase();
     }
+    
     changeLangForSearchButton(lang) {
         const langObj = {
             EN:"Search",
@@ -65,6 +59,14 @@ export default class Search {
             BE:"Пошук",
         }
         this.button.textContent = langObj[lang];
+    }
+
+    changeLangForSearchPlaceHolder(lang,isWrongInput = false) {
+        if(isWrongInput) {
+            this.searchInput.placeholder = this.langWrongInputPlaceholder[lang];
+        }else{
+            this.searchInput.placeholder = this.langInputPlaceholder[lang];
+        }
     }
    
     

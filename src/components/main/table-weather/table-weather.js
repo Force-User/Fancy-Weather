@@ -3,61 +3,11 @@ import "./table-weather.scss";
 
 export default class TableWeather {
   constructor() {
-    this.element = null;
-    this.currenttDate = null;
-    this.time = null;
+    this.element       = null;
+    this.currenttDate  = null;
+    this.time          = null;
     this.currentLocate = null;
-  }
-
-  init() {
-    const container = document.createElement("div");
-    container.innerHTML = template;
-    this.element = container.querySelector(".table-weather");
-
-    this.locate = container.querySelector(".table-weather-head__locate");
-    this.temperatureToday = container.querySelector(
-      ".weather-today__temperature"
-    );
-    this.currentDate = container.querySelector(".table-weather-head__date");
-    this.toDayImage = container.querySelector(".weather-info__image");
-
-    this.weatherToDay = container.querySelector(".item-weather");
-    this.weatherToDayInfo = container.querySelector(".item-weather-info");
-    this.feelsLike = container.querySelector(".item-feels-like");
-    this.feelsLikeInfo = container.querySelector(".item-feels-like-info");
-    this.wind = container.querySelector(".item-wind");
-    this.windInfo = container.querySelector(".item-wind-info");
-    this.humidity = container.querySelector(".item-humidity");
-    this.humidityInfo = container.querySelector(".item-humidity-info");
-
-    this.firstDay = container.querySelector('[data-day="first"]');
-    this.firstDayName = this.firstDay.querySelector(".forecast-next-day__name");
-    this.temperatureOnFirstDay = this.firstDay.querySelector(
-      ".weather-next-day__temperature"
-    );
-    this.imageFirstDay = this.firstDay.querySelector(".weather-next-day__img");
-
-    this.secondDay = container.querySelector('[data-day="second"]');
-    this.secondDayName = this.secondDay.querySelector(
-      ".forecast-next-day__name"
-    );
-    this.temperatureOnSecondDay = this.secondDay.querySelector(
-      ".weather-next-day__temperature"
-    );
-    this.imageSecondDay = this.secondDay.querySelector(
-      ".weather-next-day__img"
-    );
-
-    this.thirdDay = container.querySelector('[data-day="third"]');
-    this.thirdDayName = this.thirdDay.querySelector(".forecast-next-day__name");
-    this.temperatureOnThirdDay = this.thirdDay.querySelector(
-      ".weather-next-day__temperature"
-    );
-    this.imageThirdDay = this.thirdDay.querySelector(".weather-next-day__img");
-
-    this.ticker = container.querySelector(".ticker-content");
-
-    this.objLang = {
+    this.objLang       = {
       RU: {
         0: "Погода",
         1: "Ощущается как",
@@ -80,6 +30,37 @@ export default class TableWeather {
         4: "Тэмпература",
       },
     };
+  }
+
+  init() {
+    const container             = document.createElement("div");
+    container.innerHTML         = template;
+    this.element                = container.querySelector(".table-weather");
+    this.locate                 = container.querySelector(".table-weather-head__locate");
+    this.temperatureToday       = container.querySelector(".weather-today__temperature");
+    this.currentDate            = container.querySelector(".table-weather-head__date");
+    this.toDayImage             = container.querySelector(".weather-info__image");
+    this.weatherToDay           = container.querySelector(".item-weather");
+    this.weatherToDayInfo       = container.querySelector(".item-weather-info");
+    this.feelsLike              = container.querySelector(".item-feels-like");
+    this.feelsLikeInfo          = container.querySelector(".item-feels-like-info");
+    this.wind                   = container.querySelector(".item-wind");
+    this.windInfo               = container.querySelector(".item-wind-info");
+    this.humidity               = container.querySelector(".item-humidity");
+    this.humidityInfo           = container.querySelector(".item-humidity-info");
+    this.firstDay               = container.querySelector('[data-day="first"]');
+    this.firstDayName           = this.firstDay.querySelector(".forecast-next-day__name");
+    this.temperatureOnFirstDay  = this.firstDay.querySelector(".weather-next-day__temperature");
+    this.imageFirstDay          = this.firstDay.querySelector(".weather-next-day__img");
+    this.secondDay              = container.querySelector('[data-day="second"]');
+    this.secondDayName          = this.secondDay.querySelector(".forecast-next-day__name");
+    this.temperatureOnSecondDay = this.secondDay.querySelector(".weather-next-day__temperature");
+    this.imageSecondDay         = this.secondDay.querySelector(".weather-next-day__img");
+    this.thirdDay               = container.querySelector('[data-day="third"]');
+    this.thirdDayName           = this.thirdDay.querySelector(".forecast-next-day__name");
+    this.temperatureOnThirdDay  = this.thirdDay.querySelector(".weather-next-day__temperature");
+    this.imageThirdDay          = this.thirdDay.querySelector(".weather-next-day__img");
+    this.ticker                 = container.querySelector(".ticker-content");
   }
 
   getElement() {
@@ -192,6 +173,28 @@ export default class TableWeather {
         ((this.temperatureOnThirdDay.textContent - 32) * 5) / 9
       );
       this.setFeelsLike(parseInt(((this.getFeelsLike() - 32) * 5) / 9));
+    }
+  }
+
+  convertTemperatureToTicker(unit) {
+    const allTemperature = document.querySelectorAll('[data-name="ticker-temperature"]');
+    const allFeels       = document.querySelectorAll('[data-name="ticker-feels"]');
+   
+        
+    for(let i = 0; i < allFeels.length; i ++) {
+      const indexTemp  = allTemperature[i].textContent.indexOf(":");   
+      const indexFeels = allFeels[i].textContent.indexOf(":");     
+      
+      const tempValue  = parseInt(allTemperature[i].textContent.split(":")[1]);
+      const feelsValue = parseInt(allFeels[i].textContent.split(":")[1]);
+
+      if (unit === "F") {
+        allTemperature[i].textContent = `${allTemperature[i].textContent.substring(0,indexTemp + 1)} ${parseInt((tempValue * 9) / 5 + 32)}°`;
+        allFeels[i].textContent       = `${allFeels[i].textContent.substring(0,indexFeels + 1)} ${parseInt((feelsValue * 9) / 5 + 32)}°`;
+      }else{
+        allTemperature[i].textContent = `${allTemperature[i].textContent.substring(0, indexTemp + 1)} ${parseInt(((tempValue - 32) * 5) / 9)}°`;
+        allFeels[i].textContent       = `${allFeels[i].textContent.substring(0,indexFeels + 1)} ${parseInt(((feelsValue - 32) * 5) / 9)}°`;
+      }
     }
   }
 
@@ -716,26 +719,5 @@ export default class TableWeather {
   removeTicker() {
     const tickerInfo = document.querySelectorAll(".ticker-block-day");
     tickerInfo.forEach((item) => item.remove());
-  }
-  convertTemperatureToTicker(unit) {
-    const allTemperature = document.querySelectorAll('[data-name="ticker-temperature"]');
-    const allFeels       = document.querySelectorAll('[data-name="ticker-feels"]');
-   
-        
-    for(let i = 0; i < allFeels.length; i ++) {
-      const indexTemp  = allTemperature[i].textContent.indexOf(":");   
-      const indexFeels = allFeels[i].textContent.indexOf(":");     
-      
-      const tempValue  = parseInt(allTemperature[i].textContent.split(":")[1]);
-      const feelsValue = parseInt(allFeels[i].textContent.split(":")[1]);
-
-      if (unit === "F") {
-        allTemperature[i].textContent = `${allTemperature[i].textContent.substring(0,indexTemp + 1)} ${parseInt((tempValue * 9) / 5 + 32)}°`;
-        allFeels[i].textContent       = `${allFeels[i].textContent.substring(0,indexFeels + 1)} ${parseInt((feelsValue * 9) / 5 + 32)}°`;
-      }else{
-        allTemperature[i].textContent = `${allTemperature[i].textContent.substring(0, indexTemp + 1)} ${parseInt(((tempValue - 32) * 5) / 9)}°`;
-        allFeels[i].textContent       = `${allFeels[i].textContent.substring(0,indexFeels + 1)} ${parseInt(((feelsValue - 32) * 5) / 9)}°`;
-      }
-    }
   }
 }

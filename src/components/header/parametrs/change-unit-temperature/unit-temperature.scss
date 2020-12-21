@@ -1,18 +1,18 @@
 @import "../../../../sass/style.scss";
 .temperature {
-    overflow: hidden;
-    border-radius: $border-radius-parameters;
-    @include flex();
+  overflow: hidden;
+  border-radius: $border-radius-parameters;
+  @include flex();
 }
 .temperature__button {
-    background-color: $color-button;
-    padding: $padding-parameters-button;
-    font-weight: 700;
-    color: $color-light;
-    cursor: pointer;
+  background-color: $color-button;
+  padding: $padding-parameters-button;
+  font-weight: 700;
+  color: $color-light;
+  cursor: pointer;
 }
 
 .temperature__button--active {
-    background-color: $color-active;
-    box-shadow: inset 0 0 0px 2px $color-light;
+  background-color: $color-active;
+  box-shadow: inset 0 0 0px 2px $color-light;
 }

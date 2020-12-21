@@ -18,8 +18,8 @@ export default class Main {
     init() {
         const container     = document.createElement('div');
         container.innerHTML = template;
-        this.element = container.querySelector('.main-area');
-        this.wrapper = this.element.querySelector('.wrapper');
+        this.element        = container.querySelector('.main-area');
+        this.wrapper        = this.element.querySelector('.wrapper');
 
         this.tableWeather.init();
         this.mapTable.init();

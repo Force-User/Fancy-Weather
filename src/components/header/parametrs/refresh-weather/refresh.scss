@@ -1,26 +1,25 @@
 @import "../../../../sass/style.scss";
 .refresh {
-    background-color: $color-button;
-    padding: $padding-refresh;
-    border-radius: $border-radius-parameters;
-    background-image: url("../../../../assets/image/backrefresh.svg");
-    background-size: cover;
-    cursor: pointer;
-    &__image--active {
-        animation: refreshEffect 1s infinite;
-    }
-    &:active {
-        background-color: $color-active;
-        box-shadow: 0 0 1px 1px $color-dark;
-    }
+  background-color: $color-button;
+  padding: $padding-refresh;
+  border-radius: $border-radius-parameters;
+  background-image: url("../../../../assets/image/backrefresh.svg");
+  background-size: cover;
+  cursor: pointer;
+  &__image--active {
+    animation: refreshEffect 1s infinite;
+  }
+  &:active {
+    background-color: $color-active;
+    box-shadow: 0 0 1px 1px $color-dark;
+  }
 }
 
-
 @keyframes refreshEffect {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

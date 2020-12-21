@@ -1,7 +1,7 @@
 import Parametrs from "./parametrs/parameters";
 import template from "./header.html";
-import "./header.scss";
 import Search from "./search/search";
+import "./header.scss";
 
 export default class Header {
     constructor() {

@@ -328,21 +328,24 @@ export default class AppWeather {
   checkCity(data) {
     if (data.results[0].components.city) {
       this.currentCity = data.results[0].components.city;
-      this.engCity = data.results[0].components.city;
+      this.engCity     = data.results[0].components.city;
+
     } else if (data.results[0].components.town) {
       this.currentCity = data.results[0].components.town;
-      this.engCity = data.results[0].components.city;
+      this.engCity     = data.results[0].components.city;
+
     } else if (data.results[0].components.state) {
       this.currentCity = data.results[0].components.state;
-      this.engCity = data.results[0].components.city;
+      this.engCity     = data.results[0].components.city;
+      
     }
   }
 
   createImage(arrayImage) {
     for (let i = 0; i < arrayImage.length; i++) {
       const image = document.createElement("img");
+      image.src   = arrayImage[i];
       image.classList.add("app-images__image");
-      image.src = arrayImage[i];
       this.backgroundImageContainer.append(image);
     }
   }

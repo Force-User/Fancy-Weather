@@ -129,7 +129,7 @@
   height: 50px;
   padding-left: 100%;
   overflow: hidden;
-  background: linear-gradient(0deg,#00000099,#00000099 50%,#00000000);
+  background: linear-gradient(0deg, #00000099, #00000099 50%, #00000000);
   box-sizing: content-box;
   z-index: 1;
   &-content {
@@ -140,7 +140,6 @@
     white-space: nowrap;
     box-sizing: content-box;
     animation: ticker 120s linear infinite;
-    
   }
   &-block-day {
     display: inline-block;
@@ -180,7 +179,7 @@
 .sun {
   animation: rotateSun 30s linear infinite;
 }
-.lightning{
+.lightning {
   animation: lightning 1s linear infinite;
 }
 
@@ -268,23 +267,22 @@
   }
 }
 
-@keyframes lightning{
+@keyframes lightning {
   0% {
-    transform: translate(0,0);
+    transform: translate(0, 0);
   }
-  10%{
-    transform: translate(1px,0);
+  10% {
+    transform: translate(1px, 0);
   }
-  20%{
-    transform: translate(-1px,0);
+  20% {
+    transform: translate(-1px, 0);
   }
-  30%{
-    transform: translate(0,0);
+  30% {
+    transform: translate(0, 0);
   }
-  100%{
-    transform: translate(0,0);
+  100% {
+    transform: translate(0, 0);
   }
- 
 }
 
 @media (max-width: 1200px) {

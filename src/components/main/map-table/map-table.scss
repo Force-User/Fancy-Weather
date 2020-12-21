@@ -1,42 +1,40 @@
 @import "../../../sass/style.scss";
 .map-table {
-    @include flex(flex-start,flex-start);
-    flex-direction: column;
-    
+  @include flex(flex-start, flex-start);
+  flex-direction: column;
 }
-.map{
-    width:350px;
-    height: 350px;
-    border-radius:15px;
-    box-shadow: 0px 0px 6px 10px;
+.map {
+  width: 350px;
+  height: 350px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 6px 10px;
 }
 .mapboxgl-ctrl-bottom-left,
 .mapboxgl-ctrl-bottom-right {
-    display: none;
+  display: none;
 }
 .locate {
-    @include flex(flex-end);
-    flex-direction: column;
-    width: 100%;
-    color: #fff;
-    font-size: 25px;
-    margin-top: 10px;
+  @include flex(flex-end);
+  flex-direction: column;
+  width: 100%;
+  color: #fff;
+  font-size: 25px;
+  margin-top: 10px;
 }
 
-@media(max-width:1200px) {
-    .map-table {
-        align-items: center;
-        justify-content: center;
-        margin-top: 60px;
-    }
-    
+@media (max-width: 1200px) {
+  .map-table {
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+  }
 }
-@media(max-width: 600px) {
-    .map-table {
-        width: 100%;
-    }
-    .map{
-        width: 300px;
-        height: 300px;
-    }
+@media (max-width: 600px) {
+  .map-table {
+    width: 100%;
+  }
+  .map {
+    width: 300px;
+    height: 300px;
+  }
 }
