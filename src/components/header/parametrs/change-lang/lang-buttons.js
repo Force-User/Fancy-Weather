@@ -38,7 +38,6 @@ export default class LangSelect {
 
     toggleActiveButton() {
         this.button.classList.toggle("lang__button--active");
-        console.log("adsas");
     }
     
     toggleActiveSelect() {
