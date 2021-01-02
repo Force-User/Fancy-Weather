@@ -25,6 +25,11 @@
   text-transform: uppercase;
   color: $color-light;
   cursor: pointer;
+  transition: .5s;
+  &:hover {
+    background-color: $color-active;
+    box-shadow: inset 0 0 0px 2px $color-light;
+  }
 }
 
 .micro {
