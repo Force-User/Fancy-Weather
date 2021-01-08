@@ -1,0 +1,16 @@
+@import "../../../sass/style.scss";
+
+.parameters-buttons {
+  @include flex();
+  & > button {
+    margin-right: $margin-button-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .parameters-buttons {
+    width: 100%;
+    justify-content: center;
+    margin-top: $margin-parameters-top;
+  }
+}

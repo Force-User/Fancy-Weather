@@ -1,0 +1,14 @@
+@import "../../sass/style.scss";
+.main-area {
+  margin: 30px;
+  width: 100%;
+  @include flex();
+  text-shadow: 5px 5px 3px $color-dark;
+}
+
+@media (max-width: 1200px) {
+  .main-area .wrapper {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

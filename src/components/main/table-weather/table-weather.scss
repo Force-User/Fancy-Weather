@@ -1,0 +1,353 @@
+@import "../../../sass/style.scss";
+.table-weather {
+  @include flex(flex-start);
+  flex-direction: column;
+  &-head {
+    color: $color-light;
+    &__locate {
+      text-transform: uppercase;
+      font-size: $font-size-title;
+    }
+    &__date {
+      font-size: $font-size-subtitle;
+    }
+  }
+}
+
+.weather-today {
+  @include flex(flex-start);
+  flex-direction: column;
+  &__temperature {
+    color: $color-light;
+    font-weight: bold;
+    font-size: $font-size-current-temperature;
+    line-height: 300px;
+    position: relative;
+    &:after {
+      content: "°";
+      position: absolute;
+      top: -110px;
+      right: -10px;
+      font-size: 90px;
+    }
+  }
+}
+
+.forecast-today {
+  @include flex();
+}
+
+.weather-info {
+  @include flex(flex-start, space-between);
+  flex-direction: column;
+  margin: 20px;
+  &__image {
+    width: 160px;
+    height: 160px;
+    > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.weather-info-list {
+  margin-left: 80px;
+  &__item {
+    list-style-type: none;
+    font-size: $font-size-subtitle;
+    color: $color-light;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    .item-feels-like-info {
+      position: relative;
+      &:after {
+        content: "°";
+        position: absolute;
+        top: -10px;
+        right: -10px;
+      }
+    }
+  }
+}
+
+.weather-other-days {
+  @include flex();
+}
+
+.forecast-next-day {
+  @include flex(flex-start, space-between);
+  flex-direction: column;
+  border: 3px solid $color-light;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px 5px;
+  padding: 5px 20px;
+  &:nth-child(n + 2) {
+    margin-left: $margin-forecast-between;
+  }
+  &__name {
+    text-transform: uppercase;
+    color: $color-light;
+    font-size: $font-size-title-info;
+    font-weight: bold;
+  }
+}
+
+.weather-next-day {
+  @include flex();
+
+  &__temperature {
+    font-size: $font-size-next;
+    font-weight: 600;
+    color: $color-light;
+    position: relative;
+    &:before {
+      content: "°";
+      position: absolute;
+      top: 0px;
+      right: -10px;
+      font-size: 40px;
+    }
+  }
+  &__img {
+    margin: $margin-forecast-image;
+    width: 80px;
+    height: 80px;
+    > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.ticker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding-left: 100%;
+  overflow: hidden;
+  background: linear-gradient(0deg, #00000099, #00000099 50%, #00000000);
+  box-sizing: content-box;
+  z-index: 1;
+  &-content {
+    padding-right: 100%;
+    display: inline-block;
+    height: 50px;
+    line-height: 60px;
+    white-space: nowrap;
+    box-sizing: content-box;
+    animation: ticker 120s linear infinite;
+  }
+  &-block-day {
+    display: inline-block;
+    margin-left: 160px;
+    &__item {
+      display: inline-block;
+      list-style-type: none;
+      padding: 0 24px;
+      font-size: 20px;
+      color: $color-light;
+    }
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.snow1 {
+  transform: translate(0, -100%);
+  animation: snowFall 2s 0.5s linear infinite;
+}
+.snow2 {
+  animation: snowFall 2s linear infinite;
+}
+
+/*Sun*/
+
+.sun {
+  animation: rotateSun 30s linear infinite;
+}
+.lightning {
+  animation: lightning 1s linear infinite;
+}
+
+/*Clouds*/
+.cloud,
+.rain,
+.fog,
+.thunder,
+.drizzle,
+.sun-rain,
+.sun-cloud,
+.broken-cloud {
+  width: 100%;
+  height: 100%;
+  animation: swimmingCloud 3s linear infinite;
+}
+/*FallDrops*/
+.drizzle-drop1 {
+  animation: fallDrop 2s 1s linear infinite;
+}
+
+.drizzle-drop2 {
+  animation: fallDrop 2s 1.3s linear infinite;
+}
+.drizzle-drop3 {
+  animation: fallDrop 2s 1.6s linear infinite;
+}
+.drizzle-drop4 {
+  animation: fallDrop 2s 1.9s linear infinite;
+}
+.drizzle-drop5 {
+  animation: fallDrop 2s 2.2s linear infinite;
+}
+
+.drop1 {
+  animation: fallDrop 0.5s 0.1s linear infinite;
+}
+
+.drop2 {
+  animation: fallDrop 0.5s 0.2s linear infinite;
+}
+.drop3 {
+  animation: fallDrop 0.5s 0.3s linear infinite;
+}
+.drop4 {
+  animation: fallDrop 0.5s 0.4s linear infinite;
+}
+.drop5 {
+  animation: fallDrop 0.5s 0.5s linear infinite;
+}
+
+@keyframes swimmingCloud {
+  0% {
+    transform: translate(0, -5px);
+  }
+  50% {
+    transform: translate(0, -10px);
+  }
+  100% {
+    transform: translate(0, -5px);
+  }
+}
+
+@keyframes fallDrop {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 30px);
+  }
+}
+
+@keyframes rotateSun {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translate(0, -100%);
+  }
+  100% {
+    transform: translate(0, 100%);
+  }
+}
+
+@keyframes lightning {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(1px, 0);
+  }
+  20% {
+    transform: translate(-1px, 0);
+  }
+  30% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .weather-today__temperature {
+    font-size: 165px;
+    &:after {
+      top: -60px;
+    }
+  }
+  .weather-other-days {
+    width: 100%;
+  }
+  .forecast-next-day__name {
+    font-size: 20px;
+  }
+  .weather-next-day__temperature {
+    font-size: 70px;
+  }
+  .forecast-next-day {
+    align-items: center;
+    padding: 0;
+    &:nth-child(n + 2) {
+      margin-left: 10px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .table-weather {
+    align-items: center;
+  }
+  .table-weather-head__locate {
+    font-size: 40px;
+  }
+  .forecast-today {
+    flex-direction: column;
+    align-items: center;
+  }
+  .weather-today__temperature {
+    font-size: 165px;
+    &:after {
+      top: -60px;
+    }
+  }
+  .weather-info {
+    margin-left: 0;
+    align-items: center;
+    &-list {
+      margin-left: 0;
+      margin-bottom: 20px;
+      &__item {
+        font-size: 14px;
+      }
+    }
+  }
+  .weather-other-days {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .forecast-next-day {
+    align-items: center;
+    &:nth-child(n + 2) {
+      margin-left: 0px;
+      margin-top: 30px;
+    }
+  }
+}
